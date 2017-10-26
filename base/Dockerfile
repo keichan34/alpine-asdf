@@ -2,7 +2,9 @@ FROM alpine:latest
 MAINTAINER Keitaroh Kobayashi <keita@kbys.me>
 
 RUN apk add --no-cache git curl alpine-sdk openssl-dev zip unzip dpkg-dev openssh-client \
-    ca-certificates bash gnupg perl-utils
+    ca-certificates bash gnupg perl-utils python2 py2-pip
+
+RUN pip install awscli
 
 ENV PATH="/root/.asdf/shims:/root/.asdf/bin:${PATH}"
 
