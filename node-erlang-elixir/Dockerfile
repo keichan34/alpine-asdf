@@ -1,8 +1,7 @@
-FROM keichan34/ubuntu-asdf:base
+FROM keichan34/alpine-asdf:base
+MAINTAINER Keitaroh Kobayashi <keita@kbys.me>
 
-RUN apt-get update -q && \
-    apt-get install -y libncurses5-dev && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache ncurses-dev
 
 RUN curl https://raw.githubusercontent.com/kerl/kerl/master/kerl > /usr/local/bin/kerl && \
     chmod +x /usr/local/bin/kerl

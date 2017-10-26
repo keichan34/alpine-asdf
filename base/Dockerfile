@@ -1,8 +1,8 @@
-FROM ubuntu:latest
+FROM alpine:latest
+MAINTAINER Keitaroh Kobayashi <keita@kbys.me>
 
-RUN apt-get update -q && \
-    apt-get install -y git curl build-essential libssl-dev zip unzip dpkg-dev openssh-client ca-certificates && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache git curl alpine-sdk openssl-dev zip unzip dpkg-dev openssh-client \
+    ca-certificates bash gnupg perl-utils
 
 ENV PATH="/root/.asdf/shims:/root/.asdf/bin:${PATH}"
 
